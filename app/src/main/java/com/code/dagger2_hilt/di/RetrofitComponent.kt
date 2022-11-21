@@ -7,5 +7,5 @@ import javax.inject.Singleton
 @Singleton
 @Component(modules = [RetrofitModule::class])
 interface RetrofitComponent {
-    fun inject(mainViewModel: MainViewModel)
+    fun injectRetrofitMainViewModel(mainViewModel: MainViewModel)
 }

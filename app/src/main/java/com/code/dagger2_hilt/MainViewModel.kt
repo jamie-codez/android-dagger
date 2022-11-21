@@ -3,6 +3,7 @@ package com.code.dagger2_hilt
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
+import com.code.dagger2_hilt.db.UserDao
 import com.code.dagger2_hilt.di.RetrofitService
 import com.code.dagger2_hilt.model.RecyclerList
 import retrofit2.Call
@@ -15,7 +16,7 @@ class MainViewModel(application: Application):AndroidViewModel(application) {
     lateinit var retrofitService: RetrofitService
     private lateinit var liveDataList: MutableLiveData<RecyclerList>
     init {
-        (application as MyApplication).getRetrofitComponent().inject(this)
+        (application as MyApplication).getRetrofitComponent().injectRetrofitMainViewModel(this)
         liveDataList = MutableLiveData()
     }
     fun getLiveDataObserver():MutableLiveData<RecyclerList> = liveDataList
